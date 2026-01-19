@@ -1,62 +1,41 @@
 body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: #f2f2f2;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #121212;
+    color: white;
 }
 
-header {
-  background: #222;
-  color: white;
-  padding: 15px;
-  text-align: center;
-  font-size: 24px;
+/* Title */
+.page-title {
+    text-align: center;
+    padding: 20px;
 }
 
+/* Main container */
 .container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 20px;
-  padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 15px;
+    padding: 20px;
 }
 
-.product {
-  background: white;
-  border-radius: 10px;
-  padding: 15px;
-  text-align: center;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+/* Common box style */
+.box {
+    padding: 30px 0;
+    text-align: center;
+    font-size: 18px;
+    border-radius: 8px;
+    border: 2px solid white;
 }
 
-.product img {
-  width: 100%;
-  height: 180px;
-  object-fit: cover;
-  border-radius: 8px;
-}
-
-.price {
-  color: green;
-  font-weight: bold;
-}
-
-button {
-  background: #ff6600;
-  color: white;
-  border: none;
-  padding: 10px;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-button:hover {
-  background: #e05500;
-}
-
-footer {
-  background: #222;
-  color: white;
-  text-align: center;
-  padding: 10px;
-}
-
-
+/* Individual colors (different approach) */
+.box-1 { background: #ff6b6b; }
+.box-2 { background: #feca57; }
+.box-3 { background: #48dbfb; }
+.box-4 { background: #1dd1a1; }
+.box-5 { background: #5f27cd; }
+.box-6 { background: #ff9f43; }
+.box-7 { background: #00d2d3; }
+.box-8 { background: #c44569; }
+.box-9 { background: #576574; }
+.box-10 { background: #10ac84; }

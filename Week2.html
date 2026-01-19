@@ -1,19 +1,37 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Document</title>
+    <title>Show and Toggle Value</title>
 </head>
 <body>
-    <Div>
-<h2>Value of C</h2>
-    <button onclick="showResult()">Show</button>
 
-    <p id="result"></p>
+<h2>JavaScript Calculation</h2>
 
-    <script src="Js.js"></script>
+<button onclick="toggleValue()">Show Value</button>
 
-    </Div>
+<p id="result" style="display:none;"></p>
+
+<script>
+    function toggleValue() {
+        let result = document.getElementById("result");
+
+        let a = 5;
+        let b = 6;
+        let c = a + b;
+
+        if (result.style.display === "none") {
+            result.innerHTML =
+                "a = " + a + "<br>" +
+                "b = " + b + "<br>" +
+                "c = a + b = " + c;
+
+            result.style.display = "block";
+        } else {
+            result.style.display = "none";
+        }
+    }
+</script>
+
 </body>
 </html>
