@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Show and Hide Text</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body style="text-align:center; font-family:Arial; padding:20px;">
+
+    <h2>Show / Hide Example</h2>
+    <p id="text">This text is controlled using jQuery.</p>
+
+    <button id="show">Show</button>
+    <button id="hide">Hide</button>
+
+    <script>
+        $("#show").click(function(){
+            $("#text").show();
+        });
+
+        $("#hide").click(function(){
+            $("#text").hide();
+        });
+    </script>
+
+</body>
+</html>
