@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript Fundamentals</title>
+</head>
+<body>
+
+<h2>JavaScript Fundamentals Demo</h2>
+<p>This program demonstrates variables, operators, and control statements.</p>
+
+<p id="output"></p>
+
+<script>
+    // Step 1: Declare variables
+    let num1 = 10;
+    let num2 = 5;
+
+    // Step 2: Use operators
+    let sum = num1 + num2;
+    let difference = num1 - num2;
+    let product = num1 * num2;
+
+    // Step 3: Control statement (if-else)
+    let message;
+    if (sum > 10) {
+        message = "The sum is greater than 10.";
+    } else {
+        message = "The sum is 10 or less.";
+    }
+
+    // Step 4: Display output
+    document.getElementById("output").innerHTML =
+        "Number 1: " + num1 + "<br>" +
+        "Number 2: " + num2 + "<br><br>" +
+        "Sum: " + sum + "<br>" +
+        "Difference: " + difference + "<br>" +
+        "Product: " + product + "<br><br>" +
+        message;
+</script>
+
+</body>
+</html>
