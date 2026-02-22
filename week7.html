@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mobile Order App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f4f4;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: auto;
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        input, button {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            background: black;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            border: none;
+        }
+
+        button:hover {
+            background: #333;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <h2>Mobile Order Form</h2>
+
+    <input type="text" id="name" placeholder="Enter Name">
+    <input type="email" id="email" placeholder="Enter Email">
+    <input type="text" id="product" placeholder="Enter Product">
+
+    <button id="submitBtn">Submit Order</button>
+</div>
+
+<!-- Firebase Modular SDK -->
+<script type="module">
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+import { getFirestore, collection, addDoc, Timestamp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+
+//  Firebase Config
+const firebaseConfig = {
+  apiKey: "AIzaSyCmVDR83K9jfrifCqfNmrONcd-cANuNX6k",
+  authDomain: "mela-2a91d.firebaseapp.com",
+  projectId: "mela-2a91d",
+  storageBucket: "mela-2a91d.appspot.com",
+  messagingSenderId: "437092213946",
+  appId: "1:437092213946:web:1b22be262535cc7acbce83"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+// Submit Button Click
+document.getElementById("submitBtn").addEventListener("click", async () => {
+
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const product = document.getElementById("product").value;
+
+    if (!name || !email || !product) {
+        alert("Please fill all fields");
+        return;
+    }
+
+    try {
+        const docRef = await addDoc(collection(db, "orders"), {
+            name: name,
+            email: email,
+            product: product,
+            createdAt: Timestamp.now()
+        });
+
+        console.log("Document written with ID:", docRef.id);
+        alert("Order saved successfully!");
+
+        document.getElementById("name").value = "";
+        document.getElementById("email").value = "";
+        document.getElementById("product").value = "";
+
+    } catch (error) {
+        console.error("Error adding document:", error);
+        alert("Error saving order");
+    }
+});
+
+</script>
+
+</body>
+</html>
